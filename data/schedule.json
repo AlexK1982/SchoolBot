@@ -1,0 +1,618 @@
+[
+  {
+    "class": "3Б",
+    "weekday": "monday",
+    "slot_number": 1,
+    "slot_type": "lesson",
+    "time_range": "8:45 - 9:30",
+    "title": "Русский язык"
+  },
+  {
+    "class": "3Б",
+    "weekday": "tuesday",
+    "slot_number": 1,
+    "slot_type": "lesson",
+    "time_range": "8:45 - 9:30",
+    "title": "Хореография"
+  },
+  {
+    "class": "3Б",
+    "weekday": "wednesday",
+    "slot_number": 1,
+    "slot_type": "lesson",
+    "time_range": "8:45 - 9:30",
+    "title": "Русский язык"
+  },
+  {
+    "class": "3Б",
+    "weekday": "thursday",
+    "slot_number": 1,
+    "slot_type": "lesson",
+    "time_range": "8:45 - 9:30",
+    "title": "Математика"
+  },
+  {
+    "class": "3Б",
+    "weekday": "friday",
+    "slot_number": 1,
+    "slot_type": "lesson",
+    "time_range": "8:45 - 9:30",
+    "title": "Русский язык"
+  },
+  {
+    "class": "3Б",
+    "weekday": "monday",
+    "slot_number": null,
+    "slot_type": "meal",
+    "time_range": "9:30 - 9:40",
+    "title": "Завтрак"
+  },
+  {
+    "class": "3Б",
+    "weekday": "tuesday",
+    "slot_number": null,
+    "slot_type": "meal",
+    "time_range": "9:30 - 9:40",
+    "title": "Завтрак"
+  },
+  {
+    "class": "3Б",
+    "weekday": "wednesday",
+    "slot_number": null,
+    "slot_type": "meal",
+    "time_range": "9:30 - 9:40",
+    "title": "Завтрак"
+  },
+  {
+    "class": "3Б",
+    "weekday": "thursday",
+    "slot_number": null,
+    "slot_type": "meal",
+    "time_range": "9:30 - 9:40",
+    "title": "Завтрак"
+  },
+  {
+    "class": "3Б",
+    "weekday": "friday",
+    "slot_number": null,
+    "slot_type": "meal",
+    "time_range": "9:30 - 9:40",
+    "title": "Завтрак"
+  },
+  {
+    "class": "3Б",
+    "weekday": "monday",
+    "slot_number": 2,
+    "slot_type": "lesson",
+    "time_range": "9:40 - 10:25",
+    "title": "Математика"
+  },
+  {
+    "class": "3Б",
+    "weekday": "tuesday",
+    "slot_number": 2,
+    "slot_type": "lesson",
+    "time_range": "9:40 - 10:25",
+    "title": "Математика"
+  },
+  {
+    "class": "3Б",
+    "weekday": "wednesday",
+    "slot_number": 2,
+    "slot_type": "lesson",
+    "time_range": "9:40 - 10:25",
+    "title": "Физ-ра"
+  },
+  {
+    "class": "3Б",
+    "weekday": "thursday",
+    "slot_number": 2,
+    "slot_type": "lesson",
+    "time_range": "9:40 - 10:25",
+    "title": "Русский язык"
+  },
+  {
+    "class": "3Б",
+    "weekday": "friday",
+    "slot_number": 2,
+    "slot_type": "lesson",
+    "time_range": "9:40 - 10:25",
+    "title": "Английский язык"
+  },
+  {
+    "class": "3Б",
+    "weekday": "monday",
+    "slot_number": null,
+    "slot_type": "break",
+    "time_range": "10:25 - 10:35",
+    "title": "Перемена"
+  },
+  {
+    "class": "3Б",
+    "weekday": "tuesday",
+    "slot_number": null,
+    "slot_type": "break",
+    "time_range": "10:25 - 10:35",
+    "title": "Перемена"
+  },
+  {
+    "class": "3Б",
+    "weekday": "wednesday",
+    "slot_number": null,
+    "slot_type": "break",
+    "time_range": "10:25 - 10:35",
+    "title": "Перемена"
+  },
+  {
+    "class": "3Б",
+    "weekday": "thursday",
+    "slot_number": null,
+    "slot_type": "break",
+    "time_range": "10:25 - 10:35",
+    "title": "Перемена"
+  },
+  {
+    "class": "3Б",
+    "weekday": "friday",
+    "slot_number": null,
+    "slot_type": "break",
+    "time_range": "10:25 - 10:35",
+    "title": "Перемена"
+  },
+  {
+    "class": "3Б",
+    "weekday": "monday",
+    "slot_number": 3,
+    "slot_type": "lesson",
+    "time_range": "10:35 - 11:20",
+    "title": "Музыка"
+  },
+  {
+    "class": "3Б",
+    "weekday": "tuesday",
+    "slot_number": 3,
+    "slot_type": "lesson",
+    "time_range": "10:35 - 11:20",
+    "title": "Русский язык"
+  },
+  {
+    "class": "3Б",
+    "weekday": "wednesday",
+    "slot_number": 3,
+    "slot_type": "lesson",
+    "time_range": "10:35 - 11:20",
+    "title": "Математика"
+  },
+  {
+    "class": "3Б",
+    "weekday": "thursday",
+    "slot_number": 3,
+    "slot_type": "lesson",
+    "time_range": "10:35 - 11:20",
+    "title": "Чтение"
+  },
+  {
+    "class": "3Б",
+    "weekday": "friday",
+    "slot_number": 3,
+    "slot_type": "lesson",
+    "time_range": "10:35 - 11:20",
+    "title": "Чтение"
+  },
+  {
+    "class": "3Б",
+    "weekday": "monday",
+    "slot_number": null,
+    "slot_type": "meal",
+    "time_range": "11:20 - 11:40",
+    "title": "Завтрак 2"
+  },
+  {
+    "class": "3Б",
+    "weekday": "tuesday",
+    "slot_number": null,
+    "slot_type": "meal",
+    "time_range": "11:20 - 11:40",
+    "title": "Завтрак 2"
+  },
+  {
+    "class": "3Б",
+    "weekday": "wednesday",
+    "slot_number": null,
+    "slot_type": "meal",
+    "time_range": "11:20 - 11:40",
+    "title": "Завтрак 2"
+  },
+  {
+    "class": "3Б",
+    "weekday": "thursday",
+    "slot_number": null,
+    "slot_type": "meal",
+    "time_range": "11:20 - 11:40",
+    "title": "Завтрак 2"
+  },
+  {
+    "class": "3Б",
+    "weekday": "friday",
+    "slot_number": null,
+    "slot_type": "meal",
+    "time_range": "11:20 - 11:40",
+    "title": "Завтрак 2"
+  },
+  {
+    "class": "3Б",
+    "weekday": "monday",
+    "slot_number": 4,
+    "slot_type": "lesson",
+    "time_range": "11:40 - 12:25",
+    "title": "Чтение"
+  },
+  {
+    "class": "3Б",
+    "weekday": "tuesday",
+    "slot_number": 4,
+    "slot_type": "lesson",
+    "time_range": "11:40 - 12:25",
+    "title": "Окружающий мир"
+  },
+  {
+    "class": "3Б",
+    "weekday": "wednesday",
+    "slot_number": 4,
+    "slot_type": "lesson",
+    "time_range": "11:40 - 12:25",
+    "title": "Чтение"
+  },
+  {
+    "class": "3Б",
+    "weekday": "thursday",
+    "slot_number": 4,
+    "slot_type": "lesson",
+    "time_range": "11:40 - 12:25",
+    "title": "Изо"
+  },
+  {
+    "class": "3Б",
+    "weekday": "friday",
+    "slot_number": 4,
+    "slot_type": "lesson",
+    "time_range": "11:40 - 12:25",
+    "title": "Информатика"
+  },
+  {
+    "class": "3Б",
+    "weekday": "monday",
+    "slot_number": null,
+    "slot_type": "break",
+    "time_range": "12:25 - 12:30",
+    "title": "Перемена"
+  },
+  {
+    "class": "3Б",
+    "weekday": "tuesday",
+    "slot_number": null,
+    "slot_type": "break",
+    "time_range": "12:25 - 12:30",
+    "title": "Перемена"
+  },
+  {
+    "class": "3Б",
+    "weekday": "wednesday",
+    "slot_number": null,
+    "slot_type": "break",
+    "time_range": "12:25 - 12:30",
+    "title": "Перемена"
+  },
+  {
+    "class": "3Б",
+    "weekday": "thursday",
+    "slot_number": null,
+    "slot_type": "break",
+    "time_range": "12:25 - 12:30",
+    "title": "Перемена"
+  },
+  {
+    "class": "3Б",
+    "weekday": "friday",
+    "slot_number": null,
+    "slot_type": "break",
+    "time_range": "12:25 - 12:30",
+    "title": "Перемена"
+  },
+  {
+    "class": "3Б",
+    "weekday": "monday",
+    "slot_number": 5,
+    "slot_type": "lesson",
+    "time_range": "12:30 - 13:15",
+    "title": "Английский язык"
+  },
+  {
+    "class": "3Б",
+    "weekday": "tuesday",
+    "slot_number": 5,
+    "slot_type": "lesson",
+    "time_range": "12:30 - 13:15",
+    "title": "Английский язык"
+  },
+  {
+    "class": "3Б",
+    "weekday": "wednesday",
+    "slot_number": 5,
+    "slot_type": "lesson",
+    "time_range": "12:30 - 13:15",
+    "title": "Английский язык"
+  },
+  {
+    "class": "3Б",
+    "weekday": "thursday",
+    "slot_number": 5,
+    "slot_type": "lesson",
+    "time_range": "12:30 - 13:15",
+    "title": "Самоподготовка"
+  },
+  {
+    "class": "3Б",
+    "weekday": "friday",
+    "slot_number": 5,
+    "slot_type": "lesson",
+    "time_range": "12:30 - 13:15",
+    "title": "Окружающий мир"
+  },
+  {
+    "class": "3Б",
+    "weekday": "monday",
+    "slot_number": null,
+    "slot_type": "meal",
+    "time_range": "13:15 - 13:30",
+    "title": "Обед"
+  },
+  {
+    "class": "3Б",
+    "weekday": "tuesday",
+    "slot_number": null,
+    "slot_type": "meal",
+    "time_range": "13:15 - 13:30",
+    "title": "Обед"
+  },
+  {
+    "class": "3Б",
+    "weekday": "wednesday",
+    "slot_number": null,
+    "slot_type": "meal",
+    "time_range": "13:15 - 13:30",
+    "title": "Обед"
+  },
+  {
+    "class": "3Б",
+    "weekday": "thursday",
+    "slot_number": null,
+    "slot_type": "meal",
+    "time_range": "13:15 - 13:30",
+    "title": "Обед"
+  },
+  {
+    "class": "3Б",
+    "weekday": "friday",
+    "slot_number": null,
+    "slot_type": "meal",
+    "time_range": "13:15 - 13:30",
+    "title": "Обед"
+  },
+  {
+    "class": "3Б",
+    "weekday": "monday",
+    "slot_number": 6,
+    "slot_type": "lesson",
+    "time_range": "13:30 - 14:15",
+    "title": "Самоподготовка"
+  },
+  {
+    "class": "3Б",
+    "weekday": "tuesday",
+    "slot_number": 6,
+    "slot_type": "lesson",
+    "time_range": "13:30 - 14:15",
+    "title": "Самоподготовка"
+  },
+  {
+    "class": "3Б",
+    "weekday": "wednesday",
+    "slot_number": 6,
+    "slot_type": "lesson",
+    "time_range": "13:30 - 14:15",
+    "title": "Самоподготовка"
+  },
+  {
+    "class": "3Б",
+    "weekday": "thursday",
+    "slot_number": 6,
+    "slot_type": "lesson",
+    "time_range": "13:30 - 14:15",
+    "title": "Английский язык"
+  },
+  {
+    "class": "3Б",
+    "weekday": "friday",
+    "slot_number": 6,
+    "slot_type": "lesson",
+    "time_range": "13:30 - 14:15",
+    "title": "Самоподготовка"
+  },
+  {
+    "class": "3Б",
+    "weekday": "monday",
+    "slot_number": null,
+    "slot_type": "break",
+    "time_range": "14:15 - 14:20",
+    "title": "Перемена"
+  },
+  {
+    "class": "3Б",
+    "weekday": "tuesday",
+    "slot_number": null,
+    "slot_type": "break",
+    "time_range": "14:15 - 14:20",
+    "title": "Перемена"
+  },
+  {
+    "class": "3Б",
+    "weekday": "wednesday",
+    "slot_number": null,
+    "slot_type": "break",
+    "time_range": "14:15 - 14:20",
+    "title": "Перемена"
+  },
+  {
+    "class": "3Б",
+    "weekday": "thursday",
+    "slot_number": null,
+    "slot_type": "break",
+    "time_range": "14:15 - 14:20",
+    "title": "Перемена"
+  },
+  {
+    "class": "3Б",
+    "weekday": "friday",
+    "slot_number": null,
+    "slot_type": "break",
+    "time_range": "14:15 - 14:20",
+    "title": "Перемена"
+  },
+  {
+    "class": "3Б",
+    "weekday": "monday",
+    "slot_number": 7,
+    "slot_type": "lesson",
+    "time_range": "14:25 - 15:15",
+    "title": "Прогулка"
+  },
+  {
+    "class": "3Б",
+    "weekday": "tuesday",
+    "slot_number": 7,
+    "slot_type": "lesson",
+    "time_range": "14:25 - 15:15",
+    "title": "Изо"
+  },
+  {
+    "class": "3Б",
+    "weekday": "wednesday",
+    "slot_number": 7,
+    "slot_type": "lesson",
+    "time_range": "14:25 - 15:15",
+    "title": "Прогулка"
+  },
+  {
+    "class": "3Б",
+    "weekday": "thursday",
+    "slot_number": 7,
+    "slot_type": "lesson",
+    "time_range": "14:25 - 15:15",
+    "title": "Прогулка"
+  },
+  {
+    "class": "3Б",
+    "weekday": "friday",
+    "slot_number": 7,
+    "slot_type": "lesson",
+    "time_range": "14:25 - 15:15",
+    "title": "Прогулка"
+  },
+  {
+    "class": "3Б",
+    "weekday": "monday",
+    "slot_number": null,
+    "slot_type": "meal",
+    "time_range": "15:15 - 15:25",
+    "title": "Полдник"
+  },
+  {
+    "class": "3Б",
+    "weekday": "tuesday",
+    "slot_number": null,
+    "slot_type": "meal",
+    "time_range": "15:15 - 15:25",
+    "title": "Полдник"
+  },
+  {
+    "class": "3Б",
+    "weekday": "wednesday",
+    "slot_number": null,
+    "slot_type": "meal",
+    "time_range": "15:15 - 15:25",
+    "title": "Полдник"
+  },
+  {
+    "class": "3Б",
+    "weekday": "thursday",
+    "slot_number": null,
+    "slot_type": "meal",
+    "time_range": "15:15 - 15:25",
+    "title": "Полдник"
+  },
+  {
+    "class": "3Б",
+    "weekday": "friday",
+    "slot_number": null,
+    "slot_type": "meal",
+    "time_range": "15:15 - 15:25",
+    "title": "Полдник"
+  },
+  {
+    "class": "3Б",
+    "weekday": "tuesday",
+    "slot_number": 8,
+    "slot_type": "lesson",
+    "time_range": "15:25 - 16:10",
+    "title": "Прогулка"
+  },
+  {
+    "class": "3Б",
+    "weekday": "thursday",
+    "slot_number": 8,
+    "slot_type": "lesson",
+    "time_range": "15:25 - 16:10",
+    "title": "Физ-ра"
+  },
+  {
+    "class": "3Б",
+    "weekday": "monday",
+    "slot_number": null,
+    "slot_type": "break",
+    "time_range": "16:10 - 16:20",
+    "title": "Перемена"
+  },
+  {
+    "class": "3Б",
+    "weekday": "tuesday",
+    "slot_number": null,
+    "slot_type": "break",
+    "time_range": "16:10 - 16:20",
+    "title": "Перемена"
+  },
+  {
+    "class": "3Б",
+    "weekday": "wednesday",
+    "slot_number": null,
+    "slot_type": "break",
+    "time_range": "16:10 - 16:20",
+    "title": "Перемена"
+  },
+  {
+    "class": "3Б",
+    "weekday": "thursday",
+    "slot_number": null,
+    "slot_type": "break",
+    "time_range": "16:10 - 16:20",
+    "title": "Перемена"
+  },
+  {
+    "class": "3Б",
+    "weekday": "friday",
+    "slot_number": null,
+    "slot_type": "break",
+    "time_range": "16:10 - 16:20",
+    "title": "Перемена"
+  }
+]
