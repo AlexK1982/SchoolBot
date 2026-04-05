@@ -17,7 +17,7 @@ from service import (
     format_next_lesson,
 )
 from nlp import detect_intent, extract_weekday, extract_class_name
-from storage import set_user_class, get_user_class
+from storage import set_user_class, get_user_class, init_db
 
 
 load_dotenv()
@@ -31,7 +31,7 @@ schedule = load_schedule()
 
 bot = Bot(token=TOKEN)
 dp = Dispatcher()
-
+init_db()
 
 def get_today_weekday():
     return datetime.now().strftime("%A").lower()

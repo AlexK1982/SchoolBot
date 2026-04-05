@@ -1,35 +1,54 @@
-import json
 import os
+from urllib.parse import urlparse
+
+import psycopg
 
 
-USERS_FILE = "data/users.json"
+DATABASE_URL = os.environ.get("DATABASE_URL")
+
+if not DATABASE_URL:
+    raise ValueError("DATABASE_URL не найден")
 
 
-def load_users():
-    if not os.path.exists(USERS_FILE):
-        return {}
-
-    with open(USERS_FILE, "r", encoding="utf-8") as f:
-        return json.load(f)
+def get_connection():
+    return psycopg.connect(DATABASE_URL)
 
 
-def save_users(users):
-    os.makedirs("data", exist_ok=True)
-    with open(USERS_FILE, "w", encoding="utf-8") as f:
-        json.dump(users, f, ensure_ascii=False, indent=2)
+def init_db():
+    with get_connection() as conn:
+        with conn.cursor() as cur:
+            cur.execute("""
+                CREATE TABLE IF NOT EXISTS users (
+                    user_id TEXT PRIMARY KEY,
+                    class_name TEXT NOT NULL
+                )
+            """)
+        conn.commit()
 
 
 def set_user_class(user_id, class_name):
-    users = load_users()
-    users[str(user_id)] = {"class_name": class_name}
-    save_users(users)
+    with get_connection() as conn:
+        with conn.cursor() as cur:
+            cur.execute("""
+                INSERT INTO users (user_id, class_name)
+                VALUES (%s, %s)
+                ON CONFLICT (user_id)
+                DO UPDATE SET class_name = EXCLUDED.class_name
+            """, (str(user_id), class_name))
+        conn.commit()
 
 
 def get_user_class(user_id):
-    users = load_users()
-    user_data = users.get(str(user_id))
+    with get_connection() as conn:
+        with conn.cursor() as cur:
+            cur.execute("""
+                SELECT class_name
+                FROM users
+                WHERE user_id = %s
+            """, (str(user_id),))
+            row = cur.fetchone()
 
-    if not user_data:
+    if not row:
         return None
 
-    return user_data.get("class_name")
+    return row[0]
