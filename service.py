@@ -32,11 +32,16 @@ WEEKDAY_RU = {
     "sunday": "воскресенье",
 }
 
+import json
+import os
 
-def load_schedule(json_path: str) -> list[dict]:
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+SCHEDULE_FILE = os.path.join(BASE_DIR, "data", "schedule.json")
+
+
+def load_schedule(json_path=SCHEDULE_FILE):
     with open(json_path, "r", encoding="utf-8") as f:
         return json.load(f)
-
 
 def normalize_weekday(weekday: str) -> str:
     value = weekday.strip().lower()
