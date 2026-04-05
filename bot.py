@@ -22,8 +22,6 @@ from storage import set_user_class, get_user_class
 
 load_dotenv()
 
-print("DEBUG BOT_TOKEN from env:", repr(os.getenv("BOT_TOKEN")))
-
 TOKEN = os.getenv("BOT_TOKEN")
 
 if not TOKEN:
