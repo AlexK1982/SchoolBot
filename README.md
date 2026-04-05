@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # School Schedule Bot
 
 Telegram-бот для школьного расписания.
@@ -12,3 +13,6 @@ Telegram-бот для школьного расписания.
 
 3. Запустить:
    python bot.py
+=======
+# SchoolBot
+>>>>>>> 18e0aa43f6e8677b7e288a44b768bd1e381b095b
