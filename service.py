@@ -79,10 +79,6 @@ def format_day_schedule(class_name: str, weekday: str, lessons: list[dict]) -> s
 import json
 from datetime import datetime
 
-def load_schedule(json_path: str) -> list[dict]:
-    with open(json_path, "r", encoding="utf-8") as f:
-        return json.load(f)
-
 
 def normalize_weekday(weekday: str) -> str:
     value = weekday.strip().lower()
