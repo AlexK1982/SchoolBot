@@ -3,7 +3,7 @@ from datetime import datetime, timedelta
 
 
 def detect_intent(text: str) -> str:
-    text = text.lower()
+    text = text.lower().strip()
 
     if "сейчас" in text:
         return "current"
@@ -11,11 +11,23 @@ def detect_intent(text: str) -> str:
     if "дальше" in text or "следующий" in text:
         return "next"
 
+    day_words = [
+        "понедельник",
+        "вторник",
+        "среда",
+        "четверг",
+        "пятница",
+        "суббота",
+        "сегодня",
+        "завтра",
+    ]
+
     if (
         "расписание" in text
         or "что у" in text
-        or "что завтра" in text
-        or "что сегодня" in text
+        or "что в" in text
+        or "что во" in text
+        or any(day in text for day in day_words)
     ):
         return "day"
 
@@ -31,18 +43,24 @@ def extract_weekday(text: str):
     if "завтра" in text:
         return (datetime.now() + timedelta(days=1)).strftime("%A").lower()
 
-    days = [
-        "понедельник",
-        "вторник",
-        "среда",
-        "четверг",
-        "пятница",
-        "суббота",
-    ]
+    day_map = {
+        "понедельник": "понедельник",
+        "пн": "понедельник",
+        "вторник": "вторник",
+        "вт": "вторник",
+        "среда": "среда",
+        "ср": "среда",
+        "четверг": "четверг",
+        "чт": "четверг",
+        "пятница": "пятница",
+        "пт": "пятница",
+        "суббота": "суббота",
+        "сб": "суббота",
+    }
 
-    for day in days:
-        if day in text:
-            return day
+    for key, value in day_map.items():
+        if re.search(rf"\b{re.escape(key)}\b", text):
+            return value
 
     return None
 
