@@ -1,6 +1,6 @@
 import asyncio
 import os
-from datetime import datetime
+from time_utils import now_local
 
 from dotenv import load_dotenv
 from aiogram import Bot, Dispatcher
@@ -34,7 +34,7 @@ dp = Dispatcher()
 init_db()
 
 def get_today_weekday():
-    return datetime.now().strftime("%A").lower()
+    return now_local().strftime("%A").lower()
 
 
 @dp.message(CommandStart())
@@ -120,14 +120,14 @@ async def message_handler(message: Message):
         return
 
     if intent == "current":
-        current_time = datetime.now().strftime("%H:%M")
+        current_time = now_local().strftime("%H:%M")
         current_slot = get_current_slot(schedule, weekday, current_time)
         response = format_current_slot(class_name, weekday, current_slot)
         await message.answer(response)
         return
 
     if intent == "next":
-        current_time = datetime.now().strftime("%H:%M")
+        current_time = now_local().strftime("%H:%M")
         next_lesson = get_next_lesson(schedule, weekday, current_time)
         response = format_next_lesson(class_name, weekday, next_lesson)
         await message.answer(response)

@@ -1,6 +1,6 @@
 import re
-from datetime import datetime, timedelta
-
+from datetime import timedelta
+from time_utils import now_local
 
 def detect_intent(text: str) -> str:
     text = text.lower().strip()
@@ -38,10 +38,10 @@ def extract_weekday(text: str):
     text = text.lower()
 
     if "сегодня" in text:
-        return datetime.now().strftime("%A").lower()
+        return now_local().strftime("%A").lower()
 
     if "завтра" in text:
-        return (datetime.now() + timedelta(days=1)).strftime("%A").lower()
+        return (now_local() + timedelta(days=1)).strftime("%A").lower()
 
     day_map = {
         "понедельник": "понедельник",
