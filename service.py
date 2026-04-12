@@ -65,7 +65,7 @@ def format_day_schedule(class_name: str, weekday: str, lessons: list[dict]) -> s
     weekday_ru = WEEKDAY_RU.get(weekday_normalized, weekday_normalized)
 
     if not lessons:
-        return f"{class_name} — {weekday_ru}\n\nНа этот день уроков не найдено."
+        return f"{class_name} — {weekday_ru}\n\nНа этот день уроков нет 🎉"
 
     lines = [f"{class_name} — {weekday_ru}", ""]
 
@@ -117,7 +117,7 @@ def format_current_slot(
     weekday_ru = WEEKDAY_RU.get(weekday_normalized, weekday_normalized)
 
     if current_slot is None:
-        return f"{class_name} — {weekday_ru}\n\nСейчас активного слота нет."
+        return f"{class_name} — {weekday_ru}\n\nСейчас урока или другого активного слота нет."
 
     slot_type = current_slot["slot_type"]
     title = current_slot["title"]
@@ -127,21 +127,22 @@ def format_current_slot(
         return (
             f"{class_name} — {weekday_ru}\n\n"
             f"📚 Сейчас идет {current_slot['slot_number']}-й урок:\n"
-            f"{title} — {time_range}"
+            f"{title}\n"
+            f"⏰ {time_range}"
         )
 
     if slot_type == "break":
         return (
             f"{class_name} — {weekday_ru}\n\n"
             f"⏸ Сейчас перемена\n"
-            f"{time_range}"
+            f"⏰ {time_range}"
         )
 
     if slot_type == "meal":
         return (
             f"{class_name} — {weekday_ru}\n\n"
             f"🍽 Сейчас {title.lower()}\n"
-            f"{time_range}"
+            f"⏰ {time_range}"
         )
 
     return (
@@ -191,12 +192,13 @@ def format_next_lesson(class_name: str, weekday: str, lesson) -> str:
     weekday_ru = WEEKDAY_RU.get(weekday_normalized, weekday_normalized)
 
     if lesson is None:
-        return f"{class_name} — {weekday_ru}\n\nНа сегодня уроков больше нет."
+        return f"{class_name} — {weekday_ru}\n\nНа сегодня уроки закончились ✅"
 
     return (
         f"{class_name} — {weekday_ru}\n\n"
         f"➡️ Следующий урок:\n"
-        f"{lesson['slot_number']}. {lesson['title']} — {lesson['time_range']}"
+        f"{lesson['slot_number']}. {lesson['title']}\n"
+        f"⏰ {lesson['time_range']}"
     )
 
 

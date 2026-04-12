@@ -71,7 +71,15 @@ async def set_class_handler(message: Message):
         return
 
     set_user_class(message.from_user.id, class_name)
-    await message.answer(f"Готово ✅\nЗапомнил твой класс: {class_name}")
+    await message.answer(
+        f"Готово ✅\n"
+        f"Запомнил твой класс: {class_name}\n\n"
+        f"Теперь можно спросить, например:\n"
+        f"• что сегодня\n"
+        f"• что завтра\n"
+        f"• что сейчас\n"
+        f"• что дальше"
+    )
 
 
 @dp.message(Command("myclass"))
@@ -79,10 +87,20 @@ async def my_class_handler(message: Message):
     class_name = get_user_class(message.from_user.id)
 
     if not class_name:
-        await message.answer("Класс пока не сохранен.\nИспользуй: /setclass 3Б")
+        await message.answer(
+            "Класс пока не сохранен.\n\n"
+            "Сохрани его так:\n"
+            "/setclass 3Б"
+        )
         return
 
-    await message.answer(f"Твой сохраненный класс: {class_name}")
+    await message.answer(
+        f"Твой сохраненный класс: {class_name}\n\n"
+        f"Можешь спросить:\n"
+        f"• что сегодня\n"
+        f"• что сейчас\n"
+        f"• что дальше"
+    )
 
 
 @dp.message()
@@ -110,14 +128,11 @@ async def message_handler(message: Message):
 
     if not class_name:
         await message.answer(
-            "Не понял запрос 🤔\n\n"
-            "Попробуй так:\n"
-            "• что сегодня\n"
-            "• что завтра\n"
-            "• что сейчас\n"
-            "• что дальше\n"
-            "• /setclass 3Б\n"
-            "• /help"
+            "Сначала нужно выбрать класс 😊\n\n"
+            "Например:\n"
+            "/setclass 3Б\n\n"
+            "Или можно сразу написать запрос с классом:\n"
+            "что у 3Б в понедельник"
         )
         return
 
@@ -145,15 +160,17 @@ async def message_handler(message: Message):
         return
 
     await message.answer(
-        "Не понял запрос 🤔\n\n"
-        "Попробуй так:\n"
+        "Я пока не понял запрос 🤔\n\n"
+        "Попробуй один из вариантов:\n"
         "• что сегодня\n"
         "• что завтра\n"
         "• что сейчас\n"
         "• что дальше\n"
-        "• /setclass 3Б"
+        "• что у 3Б в понедельник\n\n"
+        "Если нужна подсказка по командам: /help"
     )
-def get_main_keyboard():
+
+    def get_main_keyboard():
     keyboard = ReplyKeyboardMarkup(
         keyboard=[
             [KeyboardButton(text="📅 Сегодня"), KeyboardButton(text="📆 Завтра")],
