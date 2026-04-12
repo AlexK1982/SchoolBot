@@ -171,14 +171,14 @@ async def message_handler(message: Message):
     )
 
     def get_main_keyboard():
-    keyboard = ReplyKeyboardMarkup(
-        keyboard=[
-            [KeyboardButton(text="📅 Сегодня"), KeyboardButton(text="📆 Завтра")],
-            [KeyboardButton(text="⏰ Сейчас"), KeyboardButton(text="➡️ Следующий")],
-        ],
-        resize_keyboard=True
-    )
-    return keyboard
+        keyboard = ReplyKeyboardMarkup(
+            keyboard=[
+                [KeyboardButton(text="📅 Сегодня"), KeyboardButton(text="📆 Завтра")],
+                [KeyboardButton(text="⏰ Сейчас"), KeyboardButton(text="➡️ Следующий")],
+            ],
+            resize_keyboard=True
+        )
+        return keyboard
 
 async def main():
     await dp.start_polling(bot)
