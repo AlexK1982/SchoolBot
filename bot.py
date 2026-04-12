@@ -36,22 +36,30 @@ init_db()
 def get_today_weekday():
     return now_local().strftime("%A").lower()
 
-
-@dp.message(CommandStart())
-async def start_handler(message: Message):
-    text = (
+def get_help_text() -> str:
+    return (
         "Привет! Я бот с расписанием.\n\n"
-        "Сначала можно выбрать класс:\n"
+        "Сначала выбери класс:\n"
         "/setclass 3Б\n\n"
-        "Потом можно писать:\n"
+        "Полезные команды:\n"
+        "/help — показать подсказку\n"
+        "/setclass 3Б — сохранить класс\n"
+        "/myclass — показать сохраненный класс\n\n"
+        "Можно писать так:\n"
         "• что сегодня\n"
         "• что завтра\n"
         "• что сейчас\n"
         "• что дальше\n"
         "• что у 3Б в понедельник"
     )
-    await message.answer(text, reply_markup=get_main_keyboard())
 
+@dp.message(CommandStart())
+async def start_handler(message: Message):
+    await message.answer(get_help_text(), reply_markup=get_main_keyboard())
+
+@dp.message(Command("help"))
+async def help_handler(message: Message):
+    await message.answer(get_help_text(), reply_markup=get_main_keyboard())
 
 @dp.message(Command("setclass"))
 async def set_class_handler(message: Message):
@@ -102,11 +110,14 @@ async def message_handler(message: Message):
 
     if not class_name:
         await message.answer(
-            "Сначала укажи класс.\n\n"
-            "Например:\n"
-            "/setclass 3Б\n\n"
-            "Или напиши его прямо в запросе:\n"
-            "что у 3Б в понедельник"
+            "Не понял запрос 🤔\n\n"
+            "Попробуй так:\n"
+            "• что сегодня\n"
+            "• что завтра\n"
+            "• что сейчас\n"
+            "• что дальше\n"
+            "• /setclass 3Б\n"
+            "• /help"
         )
         return
 
