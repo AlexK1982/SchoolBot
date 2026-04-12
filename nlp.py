@@ -2,13 +2,61 @@ import re
 from datetime import timedelta
 from time_utils import now_local
 
+
+WEEKDAY_BY_INDEX = {
+    0: "monday",
+    1: "tuesday",
+    2: "wednesday",
+    3: "thursday",
+    4: "friday",
+    5: "saturday",
+    6: "sunday",
+}
+
+
 def detect_intent(text: str) -> str:
     text = text.lower().strip()
 
-    if "сейчас" in text:
+    current_patterns = [
+        "что сейчас",
+        "что идет сейчас",
+        "какой сейчас урок",
+        "какой урок сейчас",
+        "что у меня сейчас",
+        "сейчас",
+    ]
+
+    next_patterns = [
+        "что дальше",
+        "что потом",
+        "следующий урок",
+        "какой следующий урок",
+        "что будет дальше",
+        "что у меня дальше",
+        "дальше",
+        "следующий",
+    ]
+
+    day_patterns = [
+        "что сегодня",
+        "что завтра",
+        "расписание",
+        "какое расписание",
+        "какое сегодня расписание",
+        "какое завтра расписание",
+        "что у",
+        "что в",
+        "что во",
+        "какие уроки",
+        "какие сегодня уроки",
+        "какие завтра уроки",
+        "уроки",
+    ]
+
+    if any(pattern in text for pattern in current_patterns):
         return "current"
 
-    if "дальше" in text or "следующий" in text:
+    if any(pattern in text for pattern in next_patterns):
         return "next"
 
     day_words = [
@@ -18,16 +66,20 @@ def detect_intent(text: str) -> str:
         "четверг",
         "пятница",
         "суббота",
+        "воскресенье",
+        "пн",
+        "вт",
+        "ср",
+        "чт",
+        "пт",
+        "сб",
+        "вс",
         "сегодня",
         "завтра",
     ]
 
-    if (
-        "расписание" in text
-        or "что у" in text
-        or "что в" in text
-        or "что во" in text
-        or any(day in text for day in day_words)
+    if any(pattern in text for pattern in day_patterns) or any(
+        re.search(rf"\b{re.escape(day)}\b", text) for day in day_words
     ):
         return "day"
 
@@ -35,27 +87,30 @@ def detect_intent(text: str) -> str:
 
 
 def extract_weekday(text: str):
-    text = text.lower()
+    text = text.lower().strip()
 
     if "сегодня" in text:
-        return now_local().strftime("%A").lower()
+        return WEEKDAY_BY_INDEX[now_local().weekday()]
 
     if "завтра" in text:
-        return (now_local() + timedelta(days=1)).strftime("%A").lower()
+        tomorrow = now_local() + timedelta(days=1)
+        return WEEKDAY_BY_INDEX[tomorrow.weekday()]
 
     day_map = {
-        "понедельник": "понедельник",
-        "пн": "понедельник",
-        "вторник": "вторник",
-        "вт": "вторник",
-        "среда": "среда",
-        "ср": "среда",
-        "четверг": "четверг",
-        "чт": "четверг",
-        "пятница": "пятница",
-        "пт": "пятница",
-        "суббота": "суббота",
-        "сб": "суббота",
+        "понедельник": "monday",
+        "пн": "monday",
+        "вторник": "tuesday",
+        "вт": "tuesday",
+        "среда": "wednesday",
+        "ср": "wednesday",
+        "четверг": "thursday",
+        "чт": "thursday",
+        "пятница": "friday",
+        "пт": "friday",
+        "суббота": "saturday",
+        "сб": "saturday",
+        "воскресенье": "sunday",
+        "вс": "sunday",
     }
 
     for key, value in day_map.items():
