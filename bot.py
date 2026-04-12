@@ -1,12 +1,12 @@
 import asyncio
 import os
-from time_utils import now_local
 
 from dotenv import load_dotenv
 from aiogram import Bot, Dispatcher
 from aiogram.filters import CommandStart, Command
 from aiogram.types import Message, ReplyKeyboardMarkup, KeyboardButton
 
+from time_utils import now_local
 from service import (
     load_schedule,
     get_schedule_for_day,
@@ -33,8 +33,10 @@ bot = Bot(token=TOKEN)
 dp = Dispatcher()
 init_db()
 
+
 def get_today_weekday():
     return now_local().strftime("%A").lower()
+
 
 def get_help_text() -> str:
     return (
@@ -53,13 +55,27 @@ def get_help_text() -> str:
         "• что у 3Б в понедельник"
     )
 
+
+def get_main_keyboard():
+    keyboard = ReplyKeyboardMarkup(
+        keyboard=[
+            [KeyboardButton(text="📅 Сегодня"), KeyboardButton(text="📆 Завтра")],
+            [KeyboardButton(text="⏰ Сейчас"), KeyboardButton(text="➡️ Следующий")],
+        ],
+        resize_keyboard=True
+    )
+    return keyboard
+
+
 @dp.message(CommandStart())
 async def start_handler(message: Message):
     await message.answer(get_help_text(), reply_markup=get_main_keyboard())
 
+
 @dp.message(Command("help"))
 async def help_handler(message: Message):
     await message.answer(get_help_text(), reply_markup=get_main_keyboard())
+
 
 @dp.message(Command("setclass"))
 async def set_class_handler(message: Message):
@@ -107,18 +123,15 @@ async def my_class_handler(message: Message):
 async def message_handler(message: Message):
     user_text = message.text or ""
 
-    # обработка кнопок
     if user_text == "📅 Сегодня":
         user_text = "что сегодня"
-
     elif user_text == "📆 Завтра":
         user_text = "что завтра"
-
     elif user_text == "⏰ Сейчас":
         user_text = "что сейчас"
-
     elif user_text == "➡️ Следующий":
         user_text = "что дальше"
+
     intent = detect_intent(user_text)
     weekday = extract_weekday(user_text)
     class_name = extract_class_name(user_text)
@@ -170,15 +183,6 @@ async def message_handler(message: Message):
         "Если нужна подсказка по командам: /help"
     )
 
-    def get_main_keyboard():
-        keyboard = ReplyKeyboardMarkup(
-            keyboard=[
-                [KeyboardButton(text="📅 Сегодня"), KeyboardButton(text="📆 Завтра")],
-                [KeyboardButton(text="⏰ Сейчас"), KeyboardButton(text="➡️ Следующий")],
-            ],
-            resize_keyboard=True
-        )
-        return keyboard
 
 async def main():
     await dp.start_polling(bot)
