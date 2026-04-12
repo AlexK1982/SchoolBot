@@ -61,6 +61,8 @@ def get_main_keyboard():
         keyboard=[
             [KeyboardButton(text="📅 Сегодня"), KeyboardButton(text="📆 Завтра")],
             [KeyboardButton(text="⏰ Сейчас"), KeyboardButton(text="➡️ Следующий")],
+            [KeyboardButton(text="🎓 Мой класс"), KeyboardButton(text="🔁 Сменить класс")],
+            [KeyboardButton(text="ℹ️ Помощь")],
         ],
         resize_keyboard=True
     )
@@ -94,7 +96,8 @@ async def set_class_handler(message: Message):
         f"• что сегодня\n"
         f"• что завтра\n"
         f"• что сейчас\n"
-        f"• что дальше"
+        f"• что дальше",
+        reply_markup=get_main_keyboard()
     )
 
 
@@ -106,7 +109,8 @@ async def my_class_handler(message: Message):
         await message.answer(
             "Класс пока не сохранен.\n\n"
             "Сохрани его так:\n"
-            "/setclass 3Б"
+            "/setclass 3Б",
+            reply_markup=get_main_keyboard()
         )
         return
 
@@ -115,7 +119,8 @@ async def my_class_handler(message: Message):
         f"Можешь спросить:\n"
         f"• что сегодня\n"
         f"• что сейчас\n"
-        f"• что дальше"
+        f"• что дальше",
+        reply_markup=get_main_keyboard()
     )
 
 
@@ -131,6 +136,39 @@ async def message_handler(message: Message):
         user_text = "что сейчас"
     elif user_text == "➡️ Следующий":
         user_text = "что дальше"
+    elif user_text == "ℹ️ Помощь":
+        await message.answer(get_help_text(), reply_markup=get_main_keyboard())
+        return
+    elif user_text == "🎓 Мой класс":
+        class_name = get_user_class(message.from_user.id)
+
+        if not class_name:
+            await message.answer(
+                "Класс пока не сохранен.\n\n"
+                "Сохрани его так:\n"
+                "/setclass 3Б",
+                reply_markup=get_main_keyboard()
+            )
+            return
+
+        await message.answer(
+            f"Твой сохраненный класс: {class_name}\n\n"
+            f"Можешь спросить:\n"
+            f"• что сегодня\n"
+            f"• что сейчас\n"
+            f"• что дальше",
+            reply_markup=get_main_keyboard()
+        )
+        return
+    elif user_text == "🔁 Сменить класс":
+        await message.answer(
+            "Чтобы сменить класс, отправь команду в таком формате:\n"
+            "/setclass 3Б\n\n"
+            "Например:\n"
+            "/setclass 4А",
+            reply_markup=get_main_keyboard()
+        )
+        return
 
     intent = detect_intent(user_text)
     weekday = extract_weekday(user_text)
